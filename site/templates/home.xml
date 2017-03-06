@@ -4,6 +4,7 @@
 	<html lang="$language" dir="$language_rtl ? 'rtl' : 'ltr'" cms:eval="lang,dir">
 		<head>
 			<title><cms:text constant="site_title"/></title>
+			<cms:collection include="page_control" />
 			<cms:module name="head_tag" action="print_tag"/>
 		</head>
 
@@ -39,6 +40,70 @@
 					<cms:svg file="phone.svg"/>
 				</a>
 			</header>
+
+			<section class="features">
+				<cms:module
+					name="articles"
+					action="show"
+					text_id="features_header"
+					template="stock/article_generic.xml"
+					>
+					<param name="title" value=""/>
+					<param name="title_tag" value="h2"/>
+				</cms:module>
+
+				<ul>
+					<cms:module
+						name="articles"
+						action="show_list"
+						group="features"
+						template="stock/features_generic.xml">
+						<param name="title" value=""/>
+					</cms:module>
+				</ul>
+			</section>
+
+			<section class="gallery">
+				<h2><cms:text constant="our_work" /></h2>
+
+				<div class="gallery_controls">
+					<a href="javascript:void(0)" class="next">
+						<cms:svg file="left.svg" />
+					</a>
+					<span></span>
+					<a href="javascript:void(0)" class="prev">
+						<cms:svg file="left.svg" />
+					</a>
+				</div>
+
+				<div class="gallery_container">
+					<cms:module
+						name="gallery"
+						action="show_image_list"
+						group="gallery"
+						template="stock/image_generic.xml"
+						>
+						<param name="thumbnail_size" value="600"/>
+					</cms:module>
+				</div>
+			</section>
+			<footer>
+				<div id="form_container">
+					<h4><cms:text constant="contact" /></h4>
+					<cms:module
+						name="contact_form"
+						action="show"
+						text_id="contact_form"
+						/>
+				</div>
+				<cms:module
+					name="articles"
+					action="show"
+					text_id="footer_main"
+					template="stock/article_generic.xml">
+					<param name="title" value=""/>
+				</cms:module>
+			</footer>
 		</body>
 	</html>
 </document>
