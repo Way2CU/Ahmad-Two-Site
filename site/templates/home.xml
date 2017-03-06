@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE document SYSTEM "../units/schema/language.dtd">
 <document>
-	<cms:var name="_DOCTYPE"/>
 	<html lang="$language" dir="$language_rtl ? 'rtl' : 'ltr'" cms:eval="lang,dir">
 		<head>
 			<title><cms:text constant="site_title"/></title>
@@ -9,7 +8,37 @@
 		</head>
 
 		<body>
-			<h1>It works!</h1>
+			<header>
+
+				<div class="information">
+					<cms:module
+						name="articles"
+						action="show"
+						text_id="header_main"
+						template="stock/article_generic.xml">
+						<param name="title" value=""/>
+					</cms:module>
+
+					<div id="form_container">
+						<h4><cms:text constant="contact" /></h4>
+						<cms:module
+							name="contact_form"
+							action="show"
+							text_id="contact_form"
+							/>
+					</div>
+
+				</div>
+
+				<a
+					href="'tel:'.urlencode(Language::get_Text('phone'))"
+					cms:eval="href"
+					class="phone"
+					>
+					<cms:text constant="phone" />
+					<cms:svg file="phone.svg"/>
+				</a>
+			</header>
 		</body>
 	</html>
 </document>
