@@ -51,6 +51,16 @@ Site.is_mobile = function() {
 Site.on_load = function() {
 	if (Site.is_mobile())
 		Site.mobile_menu = new Caracal.MobileMenu();
+
+	Site.gallery = new Caracal.Gallery.Slider(1);
+	Site.gallery
+		.controls.attach_next('a.next')
+		.controls.attach_previous('a.prev')
+		.controls.set_direct_container('div.gallery_controls span')
+		.controls.set_show_direct_controls(true)
+		.images.add('a.image')
+		.images.set_container('div.gallery_container')
+		.images.update();
 };
 
 
