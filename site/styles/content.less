@@ -6,6 +6,8 @@
  * Authors: Iliya Melishev
  */
 
+@list_item_size: 250;
+
 header {
 	padding: 0 calc(~'(100% - 1200px)' / 2);
 	background-image: url(../images/header.jpg);
@@ -42,6 +44,7 @@ header a.phone svg {
 	display: inline-block;
 	vertical-align: middle;
 	margin-right: 0.5em;
+	fill: @color_white;
 }
 
 header div.information {
@@ -148,11 +151,10 @@ section.features ul {
 }
 
 section.features ul li {
-	@item_size: 250;
 	display: inline-block;
 	vertical-align: top;
-	padding-top: unit(@item_size, px);
-	width: unit(@item_size, px);
+	padding-top: unit(@list_item_size, px);
+	width: unit(@list_item_size, px);
 	margin: 0;
 
 	.sprite-icon(@index: 0) {
@@ -166,7 +168,7 @@ section.features ul li {
 		.sprite-icon(2);
 	}
 	&:nth-of-type(2) {
-		margin: 0 unit((1200 - (@item_size * 3)) / 2, px);
+		margin: 0 unit((1200 - (@list_item_size * 3)) / 2, px);
 		.sprite-icon(1);
 	}
 	&:nth-of-type(3) {
@@ -285,7 +287,6 @@ footer div#form_container {
 	padding: 1em;
 }
 
-
 footer article {
 	width: 70%;
 	display: inline-block;
@@ -294,4 +295,36 @@ footer article {
 	color: @color_white;
 	box-sizing: border-box;
 	padding: 2em;
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+	header {
+		padding: 0 1em;
+	}
+
+	header div.information {
+		margin: 0;
+		padding-left: 50%;
+	}
+
+	header div.information #form_container {
+		margin-left: 10%;
+	}
+
+	header a.phone {
+		left: 1em;
+	}
+
+	section.features ul li {
+		margin: 0 2em;
+
+		&:nth-of-type(2) {
+			margin: 0 2em;
+		}
+	}
+
+	footer {
+		padding: 1em;
+		padding-top: calc(~'1em + 42px');
+	}
 }
