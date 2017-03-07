@@ -20,6 +20,26 @@
 						<param name="title" value=""/>
 					</cms:module>
 
+					<cms:desktop>
+						<div id="form_container">
+							<h4><cms:text constant="contact" /></h4>
+							<cms:module
+								name="contact_form"
+								action="show"
+								text_id="contact_form"
+								/>
+						</div>
+					</cms:desktop>
+				</div>
+					<a
+						href="'tel:'.urlencode(Language::get_Text('phone'))"
+						cms:eval="href"
+						class="phone"
+						>
+						<cms:text constant="phone" />
+						<cms:svg file="phone.svg"/>
+					</a>
+				<cms:mobile>
 					<div id="form_container">
 						<h4><cms:text constant="contact" /></h4>
 						<cms:module
@@ -28,17 +48,7 @@
 							text_id="contact_form"
 							/>
 					</div>
-
-				</div>
-
-				<a
-					href="'tel:'.urlencode(Language::get_Text('phone'))"
-					cms:eval="href"
-					class="phone"
-					>
-					<cms:text constant="phone" />
-					<cms:svg file="phone.svg"/>
-				</a>
+				</cms:mobile>
 			</header>
 
 			<section class="features">
@@ -77,14 +87,26 @@
 				</div>
 
 				<div class="gallery_container">
-					<cms:module
-						name="gallery"
-						action="show_image_list"
-						group="gallery"
-						template="stock/image_generic.xml"
-						>
-						<param name="thumbnail_size" value="600"/>
-					</cms:module>
+					<cms:desktop>
+						<cms:module
+							name="gallery"
+							action="show_image_list"
+							group="gallery"
+							template="stock/image_generic.xml"
+							>
+							<param name="thumbnail_size" value="600"/>
+						</cms:module>
+					</cms:desktop>
+					<cms:mobile>
+						<cms:module
+							name="gallery"
+							action="show_image_list"
+							group="gallery"
+							template="stock/image_generic.xml"
+							>
+							<param name="thumbnail_size" value="280"/>
+						</cms:module>
+					</cms:mobile>
 				</div>
 			</section>
 			<footer>
@@ -102,6 +124,7 @@
 					text_id="footer_main"
 					template="stock/article_generic.xml">
 					<param name="title" value=""/>
+					<param name="title_tag" value="h2"/>
 				</cms:module>
 			</footer>
 		</body>
