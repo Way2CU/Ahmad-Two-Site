@@ -10,14 +10,9 @@
 
 
 header {
-	padding: 0 0.5em;
 	text-align: center;
 	background-color: @color_aqua;
-	background-image:
-		url(../images/mobile_header.jpg),
-		linear-gradient(180deg, @color_aqua 50%, black 50%);
 	background-position: center;
-	background-size: 100% auto;
 	background-repeat: no-repeat;
 }
 
@@ -25,6 +20,10 @@ header div.information {
 	display: block;
 }
 
+header div.information article {
+	box-sizing: border-box;
+	padding: 0 0.5em;
+}
 header div.information h1 {
 	margin: 0;
 	padding: 0.5em 0;
@@ -46,8 +45,6 @@ header a.phone {
 	background-color: fade(@color_blue, 80%);
 	border: 1px solid @color_blue;
 	border-radius: 5px;
-
-	margin-bottom: 100vw;
 }
 
 header a.phone svg {
@@ -59,8 +56,15 @@ header a.phone svg {
 	fill: @color_white;
 }
 
+header img {
+	display: block;
+	width: 100%;
+}
+
 #form_container {
-	padding: 1em 0.5em;
+	box-sizing: border-box;
+	padding: 1em;
+	background-color: @color_black_dark;
 }
 
 #form_container h4 {
