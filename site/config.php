@@ -17,7 +17,7 @@ define('DEBUG', 1);
 // define('SQL_DEBUG', 1);
 
 // site language configuration
-$available_languages = array(/*'he'*/,'ar');
+$available_languages = array(/*'he',*/'ar');
 $default_language = 'ar';
 
 // default session options
