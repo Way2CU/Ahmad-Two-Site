@@ -100,6 +100,7 @@
 							template="stock/image_generic.xml"
 							>
 							<param name="thumbnail_size" value="600"/>
+							<param name="constrain" value="Thumbnail::CONSTRAIN_HEIGHT"/>
 						</cms:module>
 					</cms:desktop>
 					<cms:mobile>
