@@ -37,8 +37,8 @@
 						cms:eval="href"
 						class="phone"
 						>
-						<cms:text constant="phone" />
 						<cms:svg file="phone.svg"/>
+						<cms:text constant="phone" />
 					</a>
 				<cms:mobile>
 					<img
